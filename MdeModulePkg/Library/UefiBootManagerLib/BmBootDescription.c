@@ -33,6 +33,11 @@ typedef struct {
   CHAR16    *Name;
 } BM_SDMMC_MANUFACTURER;
 
+//
+// List based on:
+//  - https://www.cameramemoryspeed.com/sd-memory-card-faq/reading-sd-card-cid-serial-psn-internal-numbers/
+//  - https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git/tree/lsmmc.c
+//
 BM_SDMMC_MANUFACTURER  mSdManufacturers[] = {
   { 0x01, L"Panasonic"               },
   { 0x02, L"Toshiba/Kingston/Viking" },
@@ -649,8 +654,8 @@ BmGetNetworkDescription (
   //   ....../Mac(...)[/Vlan(...)][/Wi-Fi(...)]/IPv6(...)
   //
   // The HTTP device path is like:
-  //   ....../Mac(...)[/Vlan(...)][/Wi-Fi(...)]/IPv4(...)[/Dns(...)][/Uri(...)]/Uri(...)
-  //   ....../Mac(...)[/Vlan(...)][/Wi-Fi(...)]/IPv6(...)[/Dns(...)][/Uri(...)]/Uri(...)
+  //   ....../Mac(...)[/Vlan(...)][/Wi-Fi(...)]/IPv4(...)[/Dns(...)]/Uri(...)
+  //   ....../Mac(...)[/Vlan(...)][/Wi-Fi(...)]/IPv6(...)[/Dns(...)]/Uri(...)
   //
   while (!IsDevicePathEnd (DevicePath) &&
          ((DevicePathType (DevicePath) != MESSAGING_DEVICE_PATH) ||
