@@ -33,6 +33,11 @@ typedef struct {
   CHAR16    *Name;
 } BM_SDMMC_MANUFACTURER;
 
+//
+// List based on:
+//  - https://www.cameramemoryspeed.com/sd-memory-card-faq/reading-sd-card-cid-serial-psn-internal-numbers/
+//  - https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git/tree/lsmmc.c
+//
 BM_SDMMC_MANUFACTURER  mSdManufacturers[] = {
   { 0x01, L"Panasonic"               },
   { 0x02, L"Toshiba/Kingston/Viking" },
